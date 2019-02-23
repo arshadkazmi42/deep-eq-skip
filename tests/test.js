@@ -42,15 +42,15 @@ describe('validates nested jsons', () => {
 
 describe('validates flat data', () => {
   it('should be equal arrays', () => {
-    const isEqual = deepEqSkip([1, 2, 3], [1, 2, 3], []);
+    const isEqual = deepEqSkip([1, 2, 3], [1, 2, 3]);
     expect(isEqual).to.equal(true);
   });
   it('should be equal strings', () => {
-    const isEqual = deepEqSkip('deep-eq-skip', 'deep-eq-skip', []);
+    const isEqual = deepEqSkip('deep-eq-skip', 'deep-eq-skip');
     expect(isEqual).to.equal(true);
   });
   it('should not be equal strings', () => {
-    const isEqual = deepEqSkip('deep-eq-skip', 'deep-equal-skip', []);
+    const isEqual = deepEqSkip('deep-eq-skip', 'deep-equal-skip');
     expect(isEqual).to.equal(false);
   });
 });
