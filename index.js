@@ -1,7 +1,7 @@
 const isObj = require('is-obj');
 
 
-const deepEqSkip = (data, expectedData, skipKeys) => {
+const deepEqSkip = (data, expectedData, skipKeys = []) => {
   if (!isObj(data)) {
     return (data === expectedData);
   }
