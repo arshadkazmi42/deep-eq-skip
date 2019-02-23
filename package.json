@@ -1,6 +1,6 @@
 {
   "name": "deep-eq-skip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validates two jsons equality with skipping keys",
   "main": "index.js",
   "scripts": {

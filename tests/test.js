@@ -38,6 +38,10 @@ describe('validates nested jsons', () => {
     const isEqual = deepEqSkip([INPUT_JSON, INPUT_JSON], [EXPECTED_JSON, EXPECTED_JSON], []);
     expect(isEqual).to.equal(false);
   });
+  it('should not be equal object and array', () => {
+    const isEqual = deepEqSkip([{'name': '1'}], {'name': '1'}, []);
+    expect(isEqual).to.equal(false);
+  });
 });
 
 describe('validates flat data', () => {
