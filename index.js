@@ -1,7 +1,7 @@
 const isObj = require('is-obj');
 
 
-const deepEqSkip = (data, expectedData, skipKeys = []) => {
+const deepEqSkip = function(data, expectedData, skipKeys = []) {
 
   // Validate data type of both the data
   if (typeof(data) !== typeof(expectedData)) {
