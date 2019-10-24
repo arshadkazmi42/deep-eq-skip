@@ -44,6 +44,17 @@ describe('validates nested jsons', () => {
   });
 });
 
+describe('validates empty objects', () => {
+  it('should throw Error while passing an empty array', () => {
+    const fn = deepEqSkip.bind(null, [], EXPECTED_JSON);
+    expect(fn).to.throw(Error, 'Data can not be empty');
+  });
+  it('should throw Error while passing an empty object', () => {
+    const fn = deepEqSkip.bind(null, {}, EXPECTED_JSON);
+    expect(fn).to.throw(Error, 'Data can not be empty');
+  });
+});
+
 describe('validates flat data', () => {
   it('should be equal arrays', () => {
     const isEqual = deepEqSkip([1, 2, 3], [1, 2, 3]);

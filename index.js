@@ -12,6 +12,14 @@ const deepEqSkip = function(data, expectedData, skipKeys = []) {
   if (!isObj(data)) {
     return (data === expectedData);
   }
+
+  // If data is empty then throw an error
+  if (
+    Array.isArray(data) && !data.length ||
+    isObj(data) && !Object.getOwnPropertyNames(data).length
+  ) {
+    throw new Error('Data can not be empty');
+  }
   
   // Validate whole object recursively
   try {
