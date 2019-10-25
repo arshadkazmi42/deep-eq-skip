@@ -47,11 +47,19 @@ describe('validates nested jsons', () => {
 describe('validates empty objects', () => {
   it('should throw Error while passing an empty array', () => {
     const fn = deepEqSkip.bind(null, [], EXPECTED_JSON);
-    expect(fn).to.throw(Error, 'Data can not be empty');
+    expect(fn).to.throw(Error, `Expected ${JSON.stringify(EXPECTED_JSON)} found ${JSON.stringify([])}`);
   });
   it('should throw Error while passing an empty object', () => {
     const fn = deepEqSkip.bind(null, {}, EXPECTED_JSON);
-    expect(fn).to.throw(Error, 'Data can not be empty');
+    expect(fn).to.throw(Error, `Expected ${JSON.stringify(EXPECTED_JSON)} found ${JSON.stringify({})}`);
+  });
+  it('should throw Error while passing a non empty array', () => {
+    const fn = deepEqSkip.bind(null, INPUT_JSON, []);
+    expect(fn).to.throw(Error, `Expected ${JSON.stringify([])} found ${JSON.stringify(INPUT_JSON)}`);
+  });
+  it('should throw Error while passing a non empty object', () => {
+    const fn = deepEqSkip.bind(null, INPUT_JSON, {});
+    expect(fn).to.throw(Error, `Expected ${JSON.stringify({})} found ${JSON.stringify(INPUT_JSON)}`);
   });
 });
 
