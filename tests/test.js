@@ -8,7 +8,13 @@ const INPUT_JSON = {
   'repository': {
     'url': 'https://github.com/arshadkazmi42/deep-eq-skip',
     'language': 'js'
-  }
+  },
+  'keywords': [
+    'deep-equal',
+    'deep-eq'
+  ],
+  'version': 1,
+  'private': false
 };
 
 const EXPECTED_JSON = {
@@ -17,7 +23,13 @@ const EXPECTED_JSON = {
   'repository': {
     'url': 'https://github.com/arshadkazmi42/deep-equal-skip',
     'language': 'js'
-  }
+  },
+  'keywords': [
+    'deep-equal',
+    'deep-eq'
+  ],
+  'version': 1,
+  'private': false
 };
 
 
@@ -27,20 +39,20 @@ describe('validates nested jsons', () => {
     expect(isEqual).to.equal(true);
   });
   it('should not be equal json', () => {
-    const isEqual = deepEqSkip(INPUT_JSON, EXPECTED_JSON, []);
-    expect(isEqual).to.equal(false);
+    const fn = deepEqSkip.bind(null, INPUT_JSON, EXPECTED_JSON, []);
+    expect(fn).to.throw(Error, 'Expected "deep-equal-skip" found "deep-eq-skip"');
   });
   it('should be equal json arrays', () => {
     const isEqual = deepEqSkip([INPUT_JSON, INPUT_JSON], [EXPECTED_JSON, EXPECTED_JSON], ['name', 'url']);
     expect(isEqual).to.equal(true);
   });
   it('should not be equal json arrays', () => {
-    const isEqual = deepEqSkip([INPUT_JSON, INPUT_JSON], [EXPECTED_JSON, EXPECTED_JSON], []);
-    expect(isEqual).to.equal(false);
+    const fn = deepEqSkip.bind(null, [INPUT_JSON, INPUT_JSON], [EXPECTED_JSON, EXPECTED_JSON], []);
+    expect(fn).to.throw(Error, 'Expected "deep-equal-skip" found "deep-eq-skip"');
   });
   it('should not be equal object and array', () => {
-    const isEqual = deepEqSkip([{'name': '1'}], {'name': '1'}, []);
-    expect(isEqual).to.equal(false);
+    const fn = deepEqSkip.bind(null, [{ 'name': '1' }], { 'name': '1' }, []);
+    expect(fn).to.throw(Error, 'Expected undefined found {"name":"1"}');
   });
 });
 
@@ -73,7 +85,11 @@ describe('validates flat data', () => {
     expect(isEqual).to.equal(true);
   });
   it('should not be equal strings', () => {
-    const isEqual = deepEqSkip('deep-eq-skip', 'deep-equal-skip');
-    expect(isEqual).to.equal(false);
+    const fn = deepEqSkip.bind(null, 'deep-eq-skip', 'deep-equal-skip');
+    expect(fn).to.throw(Error, 'Expected "deep-equal-skip" found "deep-eq-skip"');
+  });
+  it('should not be equal string and number', () => {
+    const fn = deepEqSkip.bind(null, '1', 1);
+    expect(fn).to.throw(Error, 'Expected 1 found "1"');
   });
 });
