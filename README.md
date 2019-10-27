@@ -39,10 +39,10 @@ const isEqual = deepEqSkip(GIVEN_JSON, EXPECTED_JSON, ['name', 'url']);
 // Output -> true
 
 const isEqual = deepEqSkip(GIVEN_JSON, EXPECTED_JSON, []);
-// Output -> false
+// Throws error: Expected "deep-equal-skip" found "deep-eq-skip"
 
 const isEqual = deepEqSkip([1, 2, 3], { name: 1});
-// Output -> false
+// Throws error: Expected undefined found 1
 
 const isEqual = deepEqSkip('deep-eq-skip', 'deep-eq-skip');
 // Output -> true
