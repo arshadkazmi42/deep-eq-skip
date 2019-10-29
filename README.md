@@ -1,6 +1,9 @@
 # deep-eq-skip
 
 [![Build Status](https://travis-ci.com/arshadkazmi42/deep-eq-skip.svg?branch=master)](https://travis-ci.com/arshadkazmi42/deep-eq-skip)
+[![npm](https://img.shields.io/npm/v/deep-eq-skip)](https://www.npmjs.com/package/deep-eq-skip)
+[![npm](https://img.shields.io/npm/dt/deep-eq-skip)](https://www.npmjs.com/package/deep-eq-skip)
+[![GitHub](https://img.shields.io/github/license/arshadkazmi42/deep-eq-skip)](https://github.com/arshadkazmi42/deep-eq-skip/blob/master/LICENSE)
 
 Validates two jsons with skipping keys
 
