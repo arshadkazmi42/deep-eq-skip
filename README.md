@@ -1,6 +1,6 @@
 # deep-eq-skip
 
-[![Build Status](https://travis-ci.com/arshadkazmi42/deep-eq-skip.svg?branch=master)](https://travis-ci.com/arshadkazmi42/deep-eq-skip)
+[![Build](https://github.com/arshadkazmi42/deep-eq-skip/actions/workflows/nodejs.yml/badge.svg)](https://github.com/arshadkazmi42/deep-eq-skip/actions/workflows/nodejs.yml)
 [![npm](https://img.shields.io/npm/v/deep-eq-skip)](https://www.npmjs.com/package/deep-eq-skip)
 [![npm](https://img.shields.io/npm/dt/deep-eq-skip)](https://www.npmjs.com/package/deep-eq-skip)
 [![GitHub](https://img.shields.io/github/license/arshadkazmi42/deep-eq-skip)](https://github.com/arshadkazmi42/deep-eq-skip/blob/master/LICENSE)
